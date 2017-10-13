@@ -16,7 +16,7 @@ Some boards that have arm64 as their core architecture include:
 Execute the following command on your arm64 device to install MagicMirror² arm64 version:
 
 ```
-bash -c "$(curl -sL https://raw.githubusercontent.com/stacywebb/magicmirror_arm64/master/installers/arm64.sh)"
+bash -c "$(curl -sL https://raw.githubusercontent.com/stacywebb/custom_mm_arm64/master/installers/arm64.sh)"
 ```
 
 # Manual Installation

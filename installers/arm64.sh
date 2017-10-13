@@ -128,7 +128,7 @@ else
 fi
 
 # Use sample config for start MagicMirror
-cp config/config.js.sample config/config.js
+cp config/custom.config.js config/config.js
 # Check if plymouth is installed (default with PIXEL desktop environment), then install custom splashscreen.
 echo -e "\e[96mCheck plymouth installation ...\e[0m"
 if command_exists plymouth; then
