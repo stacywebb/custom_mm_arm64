@@ -1,0 +1,11 @@
+Python and Bash scripts need to be in the same folder!
+
+for now i’m running this via screen
+	chmod +x *.sh
+	screen -dmS smartMotion python smartMotion.py
+connect to screen session
+
+	screen -r smartMotion
+detatch from session
+
+	CTRL + A + D
