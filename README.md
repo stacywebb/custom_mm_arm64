@@ -9,20 +9,30 @@ Some boards that have arm64 as their core architecture include:
 - OrangePi Plus
 - Odroid C2
 - BananaPi M2
+- Raspberry Pi
 - and many more
 
-# Automatic Installer (arm64 only)
+# Automatic Installers
 
 Execute the following command on your arm64 device to install MagicMirror² arm64 version:
+
+For arm64
 
 ```
 bash -c "$(curl -sL https://raw.githubusercontent.com/stacywebb/custom_mm_arm64/master/installers/arm64.sh)"
 ```
 
+For Raspberry Pi
+
+```
+bash -c "$(curl -sL https://raw.githubusercontent.com/stacywebb/custom_mm_arm64/master/installers/raspberry.sh)"
+```
+
+
 # Manual Installation
 
 1. Download and install the latest Node.js version.
-2. Clone the repository and check out the master branch: `git clone https://github.com/stacywebb/magicmirror_arm64`
+2. Clone the repository and check out the master branch: `git clone https://github.com/stacywebb/custom_mm_arm64`
 3. Enter the repository: `cd ~/MagicMirror`
 4. Install and run the app: `npm install && npm start`
 

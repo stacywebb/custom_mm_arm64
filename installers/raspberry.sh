@@ -101,13 +101,13 @@ if [ -d "$HOME/MagicMirror" ] ; then
 fi
 
 echo -e "\e[96mCloning MagicMirror ...\e[90m"
-if git clone https://github.com/MichMich/MagicMirror.git; then 
+if git clone https://github.com/stacywebb/custom_mm_arm64.git; then 
   echo -e "\e[92mCloning MagicMirror Done!\e[0m"
 else
   echo -e "\e[91mUnable to clone MagicMirror."
   exit;
 fi
-
+mv ~/custom_mm_arm64/ ~/MagicMirror || exit
 cd ~/MagicMirror  || exit
 echo -e "\e[96mInstalling dependencies ...\e[90m"
 if npm install; then 
@@ -118,7 +118,7 @@ else
 fi
 
 # Use sample config for start MagicMirror
-cp config/config.js.sample config/config.js
+cp config/custom.config.js config/config.js
 
 # Check if plymouth is installed (default with PIXEL desktop environment), then install custom splashscreen.
 echo -e "\e[96mCheck plymouth installation ...\e[0m"

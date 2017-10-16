@@ -10,11 +10,11 @@
  */
 var Translator = (function () {
 	/* loadJSON(file, callback)
-   * Load a JSON file via XHR.
-   *
-   * argument file string - Path of the file we want to load.
-   * argument callback function - Function called when done.
-   */
+	* Load a JSON file via XHR.
+	*
+	* argument file string - Path of the file we want to load.
+	* argument callback function - Function called when done.
+	*/
 	function loadJSON(file, callback) {
 		var xhr = new XMLHttpRequest();
 		xhr.overrideMimeType("application/json");
@@ -27,13 +27,13 @@ var Translator = (function () {
 		xhr.send(null);
 	}
 	/* loadJSON(str, options)
-   * Remove any commenting from a json file so it can be parsed.
-   *
-   * argument str string - The string that contains json with comments.
-   * argument opts function - Strip options.
-   *
-   * return the stripped string.
-   */
+	* Remove any commenting from a json file so it can be parsed.
+	*
+	* argument str string - The string that contains json with comments.
+	* argument opts function - Strip options.
+	*
+	* return the stripped string.
+	*/
 	function stripComments(str, opts) {
 		// strip comments copied from: https://github.com/sindresorhus/strip-json-comments
 		var singleComment = 1;
@@ -103,12 +103,12 @@ var Translator = (function () {
 		translations: {},
 		translationsFallback: {},
 		/* translate(module, key, variables)
-     * Load a translation for a given key for a given module.
-     *
-     * argument module Module - The module to load the translation for.
-     * argument key string - The key of the text to translate.
-     * argument variables - The variables to use within the translation template (optional)
-     */
+		* Load a translation for a given key for a given module.
+		*
+		* argument module Module - The module to load the translation for.
+		* argument key string - The key of the text to translate.
+		* argument variables - The variables to use within the translation template (optional)
+		*/
 		translate: function (module, key, variables) {
 			variables = variables || {}; //Empty object by default
 			// Combines template and variables like:
@@ -142,12 +142,12 @@ var Translator = (function () {
 			return key;
 		},
 		/* load(module, file, callback)
-     * Load a translation file (json) and remember the data.
-     *
-     * argument module Module - The module to load the translation file for.
-     * argument file string - Path of the file we want to load.
-     * argument callback function - Function called when done.
-     */
+		* Load a translation file (json) and remember the data.
+		*
+		* argument module Module - The module to load the translation file for.
+		* argument file string - Path of the file we want to load.
+		* argument callback function - Function called when done.
+		*/
 		load: function (module, file, isFallback, callback) {
 			if (!isFallback) {
 				Log.log(module.name + " - Load translation: " + file);
@@ -169,10 +169,10 @@ var Translator = (function () {
 			}
 		},
 		/* loadCoreTranslations(lang)
-     * Load the core translations.
-     *
-     * argument lang String - The language identifier of the core language.
-     */
+		* Load the core translations.
+		*
+		* argument lang String - The language identifier of the core language.
+		*/
 		loadCoreTranslations: function (lang) {
 			var self = this;
 			if (lang in translations) {
@@ -186,9 +186,9 @@ var Translator = (function () {
 			self.loadCoreTranslationsFallback();
 		},
 		/* loadCoreTranslationsFallback()
-     * Load the core translations fallback.
-     * The first language defined in translations.js will be used.
-     */
+		* Load the core translations fallback.
+		* The first language defined in translations.js will be used.
+		*/
 		loadCoreTranslationsFallback: function () {
 			var self = this;
 			// The variable `first` will contain the first

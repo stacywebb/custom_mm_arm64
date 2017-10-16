@@ -11,8 +11,8 @@
  */
 var Module = Class.extend({
 	/*********************************************************
-   * All methods (and properties) below can be subclassed. *
-   *********************************************************/
+	* All methods (and properties) below can be subclassed. *
+	*********************************************************/
 	// Set the minimum MagicMirror 2 arm64 module version for this module.
 	requiresVersion: "1.0.0",
 	// Module config defaults.
@@ -23,47 +23,47 @@ var Module = Class.extend({
 	// visibility when hiding and showing module.
 	lockStrings: [],
 	/* init()
-   * Is called when the module is instantiated.
-   */
+	* Is called when the module is instantiated.
+	*/
 	init: function () {
 		//Log.log(this.defaults);
 	},
 	/* start()
-   * Is called when the module is started.
-   */
+	* Is called when the module is started.
+	*/
 	start: function () {
 		Log.info("Starting module: " + this.name);
 	},
 	/* getScripts()
-   * Returns a list of scripts the module requires to be loaded.
-   *
-   * return Array<String> - An array with filenames.
-   */
+	* Returns a list of scripts the module requires to be loaded.
+	*
+	* return Array<String> - An array with filenames.
+	*/
 	getScripts: function () {
 		return [];
 	},
 	/* getStyles()
-   * Returns a list of stylesheets the module requires to be loaded.
-   *
-   * return Array<String> - An array with filenames.
-   */
+	* Returns a list of stylesheets the module requires to be loaded.
+	*
+	* return Array<String> - An array with filenames.
+	*/
 	getStyles: function () {
 		return [];
 	},
 	/* getTranslations()
-   * Returns a map of translation files the module requires to be loaded.
-   *
-   * return Map<String, String> - A map with langKeys and filenames.
-   */
+	* Returns a map of translation files the module requires to be loaded.
+	*
+	* return Map<String, String> - A map with langKeys and filenames.
+	*/
 	getTranslations: function () {
 		return false;
 	},
 	/* getDom()
-   * This method generates the dom which needs to be displayed. This method is called by the Magic Mirror core.
-   * This method needs to be subclassed if the module wants to display info on the mirror.
-   *
-   * return domobject - The dom to display.
-   */
+	* This method generates the dom which needs to be displayed. This method is called by the Magic Mirror core.
+	* This method needs to be subclassed if the module wants to display info on the mirror.
+	*
+	* return domobject - The dom to display.
+	*/
 	getDom: function () {
 		var nameWrapper = document.createElement("div");
 		var name = document.createTextNode(this.name);
@@ -78,23 +78,23 @@ var Module = Class.extend({
 		return div;
 	},
 	/* getHeader()
-   * This method generates the header string which needs to be displayed if a user has a header configured for this module.
-   * This method is called by the Magic Mirror core, but only if the user has configured a default header for the module.
-   * This method needs to be subclassed if the module wants to display modified headers on the mirror.
-   *
-   * return string - The header to display above the header.
-   */
+	* This method generates the header string which needs to be displayed if a user has a header configured for this module.
+	* This method is called by the Magic Mirror core, but only if the user has configured a default header for the module.
+	* This method needs to be subclassed if the module wants to display modified headers on the mirror.
+	*
+	* return string - The header to display above the header.
+	*/
 	getHeader: function () {
 		return this.data.header;
 	},
 	/* notificationReceived(notification, payload, sender)
-   * This method is called when a notification arrives.
-   * This method is called by the Magic Mirror core.
-   *
-   * argument notification string - The identifier of the notification.
-   * argument payload mixed - The payload of the notification.
-   * argument sender Module - The module that sent the notification.
-   */
+	* This method is called when a notification arrives.
+	* This method is called by the Magic Mirror core.
+	*
+	* argument notification string - The identifier of the notification.
+	* argument payload mixed - The payload of the notification.
+	* argument sender Module - The module that sent the notification.
+	*/
 	notificationReceived: function (notification, payload, sender) {
 		if (sender) {
 			Log.log(this.name + " received a module notification: " + notification + " from sender: " + sender.name);
@@ -103,34 +103,34 @@ var Module = Class.extend({
 		}
 	},
 	/* socketNotificationReceived(notification, payload)
-   * This method is called when a socket notification arrives.
-   *
-   * argument notification string - The identifier of the notification.
-   * argument payload mixed - The payload of the notification.
-   */
+	* This method is called when a socket notification arrives.
+	*
+	* argument notification string - The identifier of the notification.
+	* argument payload mixed - The payload of the notification.
+	*/
 	socketNotificationReceived: function (notification, payload) {
 		Log.log(this.name + " received a socket notification: " + notification + " - Payload: " + payload);
 	},
 	/* suspend()
-   * This method is called when a module is hidden.
-   */
+	* This method is called when a module is hidden.
+	*/
 	suspend: function () {
 		Log.log(this.name + " is suspended.");
 	},
 	/* resume()
-   * This method is called when a module is shown.
-   */
+	* This method is called when a module is shown.
+	*/
 	resume: function () {
 		Log.log(this.name + " is resumed.");
 	},
 	/*********************************************
-   * The methods below don"t need subclassing. *
-   *********************************************/
+	* The methods below don"t need subclassing. *
+	*********************************************/
 	/* setData(data)
-   * Set the module data.
-   *
-   * argument data obejct - Module data.
-   */
+	* Set the module data.
+	*
+	* argument data obejct - Module data.
+	*/
 	setData: function (data) {
 		this.data = data;
 		this.name = data.name;
@@ -139,17 +139,17 @@ var Module = Class.extend({
 		this.setConfig(data.config);
 	},
 	/* setConfig(config)
-   * Set the module config and combine it with the module defaults.
-   *
-   * argument config obejct - Module config.
-   */
+	* Set the module config and combine it with the module defaults.
+	*
+	* argument config obejct - Module config.
+	*/
 	setConfig: function (config) {
 		this.config = Object.assign({}, this.defaults, config);
 	},
 	/* socket()
-   * Returns a socket object. If it doesn"t exist, it"s created.
-   * It also registers the notification callback.
-   */
+	* Returns a socket object. If it doesn"t exist, it"s created.
+	* It also registers the notification callback.
+	*/
 	socket: function () {
 		if (typeof this._socket === "undefined") {
 			this._socket = this._socket = new MMSocket(this.name);
@@ -161,37 +161,37 @@ var Module = Class.extend({
 		return this._socket;
 	},
 	/* file(file)
-   * Retrieve the path to a module file.
-   *
-   * argument file string - Filename.
-   *
-   * return string - File path.
-   */
+	* Retrieve the path to a module file.
+	*
+	* argument file string - Filename.
+	*
+	* return string - File path.
+	*/
 	file: function (file) {
 		return this.data.path + "/" + file;
 	},
 	/* loadStyles()
-   * Load all required stylesheets by requesting the MM object to load the files.
-   *
-   * argument callback function - Function called when done.
-   */
+	* Load all required stylesheets by requesting the MM object to load the files.
+	*
+	* argument callback function - Function called when done.
+	*/
 	loadStyles: function (callback) {
 		this.loadDependencies("getStyles", callback);
 	},
 	/* loadScripts()
-   * Load all required scripts by requesting the MM object to load the files.
-   *
-   * argument callback function - Function called when done.
-   */
+	* Load all required scripts by requesting the MM object to load the files.
+	*
+	* argument callback function - Function called when done.
+	*/
 	loadScripts: function (callback) {
 		this.loadDependencies("getScripts", callback);
 	},
 	/* loadDependencies(funcName, callback)
-   * Helper method to load all dependencies.
-   *
-   * argument funcName string - Function name to call to get scripts or styles.
-   * argument callback function - Function called when done.
-   */
+	* Helper method to load all dependencies.
+	*
+	* argument funcName string - Function name to call to get scripts or styles.
+	* argument callback function - Function called when done.
+	*/
 	loadDependencies: function (funcName, callback) {
 		var self = this;
 		var dependencies = this[funcName]();
@@ -209,10 +209,10 @@ var Module = Class.extend({
 		loadNextDependency();
 	},
 	/* loadScripts()
-   * Load all required scripts by requesting the MM object to load the files.
-   *
-   * argument callback function - Function called when done.
-   */
+	* Load all required scripts by requesting the MM object to load the files.
+	*
+	* argument callback function - Function called when done.
+	*/
 	loadTranslations: function (callback) {
 		var self = this;
 		var translations = this.getTranslations();
@@ -239,12 +239,12 @@ var Module = Class.extend({
 		}
 	},
 	/* translate(key, defaultValueOrVariables, defaultValue)
-   * Request the translation for a given key with optional variables and default value.
-   *
-   * argument key string - The key of the string to translate
-   * argument defaultValueOrVariables string/object - The default value or variables for translating. (Optional)
-   * argument defaultValue string - The default value with variables. (Optional)
-   */
+	* Request the translation for a given key with optional variables and default value.
+	*
+	* argument key string - The key of the string to translate
+	* argument defaultValueOrVariables string/object - The default value or variables for translating. (Optional)
+	* argument defaultValue string - The default value with variables. (Optional)
+	*/
 	translate: function (key, defaultValueOrVariables, defaultValue) {
 		if (typeof defaultValueOrVariables === "object") {
 			return Translator.translate(this, key, defaultValueOrVariables) || defaultValue || "";
@@ -252,38 +252,38 @@ var Module = Class.extend({
 		return Translator.translate(this, key) || defaultValueOrVariables || "";
 	},
 	/* updateDom(speed)
-   * Request an (animated) update of the module.
-   *
-   * argument speed Number - The speed of the animation. (Optional)
-   */
+	* Request an (animated) update of the module.
+	*
+	* argument speed Number - The speed of the animation. (Optional)
+	*/
 	updateDom: function (speed) {
 		MM.updateDom(this, speed);
 	},
 	/* sendNotification(notification, payload)
-   * Send a notification to all modules.
-   *
-   * argument notification string - The identifier of the notification.
-   * argument payload mixed - The payload of the notification.
-   */
+	* Send a notification to all modules.
+	*
+	* argument notification string - The identifier of the notification.
+	* argument payload mixed - The payload of the notification.
+	*/
 	sendNotification: function (notification, payload) {
 		MM.sendNotification(notification, payload, this);
 	},
 	/* sendSocketNotification(notification, payload)
-   * Send a socket notification to the node helper.
-   *
-   * argument notification string - The identifier of the notification.
-   * argument payload mixed - The payload of the notification.
-   */
+	* Send a socket notification to the node helper.
+	*
+	* argument notification string - The identifier of the notification.
+	* argument payload mixed - The payload of the notification.
+	*/
 	sendSocketNotification: function (notification, payload) {
 		this.socket().sendNotification(notification, payload);
 	},
 	/* hideModule(module, speed, callback)
-   * Hide this module.
-   *
-   * argument speed Number - The speed of the hide animation.
-   * argument callback function - Called when the animation is done.
-   * argument options object - Optional settings for the hide method.
-   */
+	* Hide this module.
+	*
+	* argument speed Number - The speed of the hide animation.
+	* argument callback function - Called when the animation is done.
+	* argument options object - Optional settings for the hide method.
+	*/
 	hide: function (speed, callback, options) {
 		if (typeof callback === "object") {
 			options = callback;
@@ -298,12 +298,12 @@ var Module = Class.extend({
 		}, options);
 	},
 	/* showModule(module, speed, callback)
-   * Show this module.
-   *
-   * argument speed Number - The speed of the show animation.
-   * argument callback function - Called when the animation is done.
-   * argument options object - Optional settings for the hide method.
-   */
+	* Show this module.
+	*
+	* argument speed Number - The speed of the show animation.
+	* argument callback function - Called when the animation is done.
+	* argument options object - Optional settings for the hide method.
+	*/
 	show: function (speed, callback, options) {
 		if (typeof callback === "object") {
 			options = callback;
@@ -328,11 +328,11 @@ Module.create = function (name) {
 	return new ModuleClass();
 };
 /* cmpVersions(a,b)
- * Compare two symantic version numbers and return the difference.
- *
- * argument a string - Version number a.
- * argument a string - Version number b.
- */
+* Compare two symantic version numbers and return the difference.
+*
+* argument a string - Version number a.
+* argument a string - Version number b.
+*/
 function cmpVersions(a, b) {
 	var i, diff;
 	var regExStrip0 = /(\.0+)+$/;

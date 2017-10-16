@@ -10,7 +10,7 @@ counter = 0
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(4, GPIO.IN)
-print "Starting up!"
+print ("Starting up!")
 print isPlaying
 while True:
 	i=GPIO.input(4)

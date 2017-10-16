@@ -1,7 +1,7 @@
 {
-  "name": "magicmirror_arm64",
+  "name": "magicmirror_custom",
   "version": "3.0.0",
-  "description": "arm64 build of MagicMirror",
+  "description": "Custom build of MagicMirror",
   "main": "js/electron.js",
   "scripts": {
     "start": "sh run-start.sh",

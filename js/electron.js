@@ -18,13 +18,14 @@ let mainWindow;
 
 function createWindow() {
 	var electronOptionsDefaults = {
-		width: 800,
-		height: 600,
+		width: 1080,
+		height: 1920,
 		x: 0,
 		y: 0,
 		darkTheme: true,
-		darkTheme: true,
 		frame: false,
+		fullscreen: true,
+		autoHideMenuBar: true;
 		webPreferences: {
 			nodeIntegration: false,
 			zoomFactor: config.zoom

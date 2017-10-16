@@ -111,7 +111,7 @@ if [ -d "$HOME/MagicMirror" ] ; then
 fi
 
 echo -e "\e[96mCloning MagicMirror 2 arm64 version...\e[90m"
-if git clone https://github.com/stacywebb/magicmirror_arm64.git; then
+if git clone https://github.com/stacywebb/custom_mm_arm64.git; then
 	echo -e "\e[92mCloning MagicMirror 2 arm64 Done!\e[0m"
 else
 	echo -e "\e[91mUnable to clone MagicMirror."
