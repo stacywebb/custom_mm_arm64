@@ -10,7 +10,7 @@
  */
 var config = {
 	port: 8080,
-	ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.0.0/24"],
+	ipWhitelist: ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.X.1/120"],
 	// Set [] to allow all IP addresses
 	// or add a specific IPv4 of 192.168.1.5 :
 	// ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
@@ -34,7 +34,7 @@ var config = {
 			position: 'fullscreen_below',
 			config: {
 				videoSRC: "./modules/MMM-htmlvideo/videos/stream.mp4",
-				loop: true,
+				loop: true
 			}
 		},
 		{
@@ -67,15 +67,14 @@ var config = {
 					title: "New York Times",
 					url: "http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml"
 				},
-						{
-							title: "National Weather Service",
-							url: "https://www.weather.gov/rss_page.php?site_name=nws"
-						}
-					   ],
+				{
+					title: "National Weather Service",
+					url: "https://www.weather.gov/rss_page.php?site_name=nws"
+				}],
 				showSourceTitle: true,
 				showPublishDate: true
 			}
-		},
+		}
 	]
 };
 /*************** DO NOT EDIT THE LINE BELOW ***************/

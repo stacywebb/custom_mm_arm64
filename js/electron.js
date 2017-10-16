@@ -18,8 +18,8 @@ let mainWindow;
 
 function createWindow() {
 	var electronOptionsDefaults = {
-		width: 1080,
-		height: 1920,
+		width: 800,
+		height: 600,
 		x: 0,
 		y: 0,
 		darkTheme: true,
