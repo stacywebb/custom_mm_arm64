@@ -25,7 +25,7 @@ function createWindow() {
 		darkTheme: true,
 		frame: false,
 		fullscreen: true,
-		autoHideMenuBar: true;
+		autoHideMenuBar: true,
 		webPreferences: {
 			nodeIntegration: false,
 			zoomFactor: config.zoom
